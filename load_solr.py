@@ -2,7 +2,10 @@ from bs4 import BeautifulSoup
 from sys import argv
 import http.client, urllib.parse
 import re, string
-pattern = re.compile('[\W_]+')
+import hashlib
+import unicodedata
+
+#pattern = re.compile('[\W_]+')
 
 script, conv = argv
 
@@ -14,26 +17,25 @@ conn = http.client.HTTPConnection('localhost', 8983)
 #conn.request('POST', '/solr/admin/cores?action=UNLOAD&core=aiml&deleteIndex=true&deleteDataDir=true')
 #conn.request('POST', '/solr/admin/cores?action=CREATE&name=aiml&instanceDir=aiml')
 
-docCount = 0
-
 for token in soup('category'):
-    if ('srai' not in token.template):
-        print('SOLR ', token.pattern.text)
+    # skip SRAIs and * wildcard rules
+    if ('*' not in token.pattern.text):
+        pattern = token.pattern.text
 
+        docId = hashlib.sha224(pattern.encode('ascii','ignore')).hexdigest()
+        print('SOLR: %s %s' % (docId, pattern))
         BODY = """\
 [
     {
         "id" : "DOC%s",
-        "title" : "%s",
-        "template":"%s"
+        "title" : "%s"
     }
 ]
-""" % (docCount, token.pattern.text," ".join(pattern.sub(' ', token.template.text).split()) )
+""" % (docId, pattern)
         print('BODY ', BODY)
-        docCount = docCount + 1
 
         headers = {'Content-type': 'application/json'}
-        conn.request('POST', '/solr/aiml/update?commit=true', BODY, headers)
+        conn.request('POST', '/solr/aiml/update', BODY, headers)
         response = conn.getresponse()
         print(response.status, response.reason)
         data = response.read()
