@@ -10,8 +10,12 @@ fi
 if [[ ! -f $CACHE_DIR/solr-5.5.0.zip ]]; then
     wget http://www.motorlogy.com/apache/lucene/solr/5.5.0/solr-5.5.0.zip -O $CACHE_DIR/solr-5.5.0.zip
 fi
-unzip -n $CACHE_DIR/solr-5.5.0.zip -d $SOLR_DIR
 
+if [[ ! -f $SOLR_DIR/solr-5.5.0/bin/solr ]]; then
+    unzip -n $CACHE_DIR/solr-5.5.0.zip -d $SOLR_DIR
+fi
+
+$SOLR_DIR/solr-5.5.0/bin/solr start
 $SOLR_DIR/solr-5.5.0/bin/solr delete -c aiml
 $SOLR_DIR/solr-5.5.0/bin/solr create -c aiml
 
