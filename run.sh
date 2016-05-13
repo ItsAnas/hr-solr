@@ -23,7 +23,7 @@ $SOLR_DIR/solr-5.5.0/bin/solr delete -c 3coltemplate
 $SOLR_DIR/solr-5.5.0/bin/solr create -c 3colpattern
 $SOLR_DIR/solr-5.5.0/bin/solr create -c 3coltemplate
 
-for i in $BASEDIR/../public_ws/src/chatbot/character_aiml/sophia.*.aiml; do python3 load_solr.py "$i"; done
+for i in $BASEDIR/../character_dev/character_aiml/sophia.*.aiml; do python3 load_solr.py "$i"; done
 for i in $BASEDIR/../character_dev/character_aiml/sophia.*.xml; do python3 load_solr.py "$i"; done
 python3 $BASEDIR/three-column/load.py $BASEDIR/convoid.csv
 $SOLR_DIR/solr-5.5.0/bin/solr stop
