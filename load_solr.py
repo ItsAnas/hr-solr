@@ -4,12 +4,14 @@ import http.client, urllib.parse
 import re, string
 import hashlib
 import unicodedata
+import io
 
 #pattern = re.compile('[\W_]+')
 
 script, conv = argv
 
-doc = open(conv).read()
+with io.open(conv, encoding='utf-8') as f:
+    doc = f.read()
 soup = BeautifulSoup(''.join(doc))
 
 conn = http.client.HTTPConnection('localhost', 8983)

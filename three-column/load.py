@@ -4,6 +4,7 @@ import http.client, urllib.parse
 import re, string
 import hashlib
 import unicodedata
+import io
 
 #pattern = re.compile('[\W_]+')
 
@@ -39,8 +40,7 @@ def cleanString(string):
 # Read and process CSV
 meanings = {}        
 
-doc = open(conv).read()
-with open(conv, newline='') as csvfile:
+with io.open(conv, encoding='utf-8') as csvfile:
     convread = csv.reader(csvfile, delimiter=',', quotechar='"')
     for row in convread:
         pattern = row[0]
