@@ -3,7 +3,7 @@
 BASEDIR=$(dirname $(readlink -f ${BASH_SOURCE[0]}))
 CACHE_DIR=~/.hr/cache
 SOLR_DIR=~/.hr/solr
-VERSION=5.5.2
+VERSION=6.1.0
 if [[ ! -d $CACHE_DIR ]]; then
     mkdir -p $CACHE_DIR
 fi
