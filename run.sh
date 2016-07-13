@@ -2,7 +2,7 @@
 
 BASEDIR=$(dirname $(readlink -f ${BASH_SOURCE[0]}))
 SOLR_DIR=~/.hr/solr
-VERSION=6.1.0
+VERSION=5.5.2
 
 $SOLR_DIR/solr-${VERSION}/bin/solr start
 $SOLR_DIR/solr-${VERSION}/bin/solr delete -c aiml
