@@ -1,3 +1,4 @@
+# Copyright (c) 2016 Hanson Robotics, Ltd. 
 from sys import argv
 import csv
 import http.client, urllib.parse

@@ -1,4 +1,5 @@
 #!/bin/bash
+# Copyright (c) 2016 Hanson Robotics, Ltd. 
 
 BASEDIR=$(dirname $(readlink -f ${BASH_SOURCE[0]}))
 SOLR_DIR=~/.hr/solr

@@ -1,4 +1,5 @@
 #!/bin/bash
+# Copyright (c) 2016 Hanson Robotics, Ltd. 
 ./solr-5.5.0/bin/solr delete -c aiml
 ./solr-5.5.0/bin/solr create -c aiml
 for i in ../public_ws/src/chatbot/character_aiml/sophia.*.aiml; do python3 load_solr.py "$i"; done

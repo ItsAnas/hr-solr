@@ -1,3 +1,4 @@
+# Copyright (c) 2016 Hanson Robotics, Ltd. 
 import aiml
 import urllib, json
 import random

@@ -1,3 +1,4 @@
+<< Copyright (c) 2016 Hanson Robotics, Ltd. >>
 a, adenine, amp, ampere, angstrom, axerophthol
 aachen, aken
 aalborg, alborg

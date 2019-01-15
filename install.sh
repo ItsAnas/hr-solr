@@ -1,4 +1,5 @@
 #!/bin/bash
+# Copyright (c) 2016 Hanson Robotics, Ltd. 
 sudo apt-get update 
 sudo apt-get install unzip openjdk-7-jdk lsof
 wget http://www.motorlogy.com/apache/lucene/solr/5.5.0/solr-5.5.0.zip
