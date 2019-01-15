@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# Copyright (c) 2016 Hanson Robotics, Ltd. 
 
 import logging
 import json

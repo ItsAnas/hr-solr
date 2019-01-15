@@ -1,3 +1,4 @@
+# Copyright (c) 2016 Hanson Robotics, Ltd. 
 from bs4 import BeautifulSoup
 from sys import argv
 import http.client, urllib.parse

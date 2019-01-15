@@ -1,4 +1,5 @@
 #!/bin/bash
+# Copyright (c) 2016 Hanson Robotics, Ltd. 
 ./solr-5.5.0/bin/solr delete -c 3colpattern
 ./solr-5.5.0/bin/solr delete -c 3coltemplate
 ./solr-5.5.0/bin/solr create -c 3colpattern
